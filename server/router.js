@@ -1,0 +1,44 @@
+import express from 'express';
+import pokemon from './db.js';
+const route = express.Router();
+route.get('/', async(req, res) => {
+  try {
+    const poke = await pokemon.find({}).limit(10).toArray();
+    
+    res.status(200).send(poke)
+  } catch (error) {
+    res.status(404).send(error)
+  }
+})
+route.get('/:id', async(req, res) => {
+    try {
+        const num = parseInt(req.params.id)
+        
+        const poke = await pokemon.findOne({id:num});
+    
+        res.status(200).json(poke)
+      } catch (error) {
+        res.status(404).send(error)
+      }
+})
+route.get('/:id/:name', async(req, res) => {
+    try {
+        const num = parseInt(req.params.id)
+        const changable = req.params.name
+        
+        const poke = await pokemon.findOne({id:num});
+        if (changable == 'name') {
+           res.status(200).json(poke.name)
+        } else if (changable == 'type') {
+            res.status(200).json(poke.type)
+        } else if (changable == 'base') {
+            res.status(200).json(poke.base)
+        }
+      
+        
+      } catch (error) {
+        res.status(404).send(error)
+      }
+})
+
+export default route
