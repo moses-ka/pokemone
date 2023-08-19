@@ -9,7 +9,7 @@ export default function Pokemones() {
    
       axios.get("https://pokomone.onrender.com/pokemon")
       .then((response) => {
-        console.log(response.data);
+     
         setPokemones(response.data);
       })
       .catch((error) => {
@@ -21,16 +21,17 @@ export default function Pokemones() {
     <NavBar/>
    
       <div className="flex flex-col justify-center items-center gap-2 p-4">
-      <h1>Pokemones</h1>
+      
         {pokemones.map((poke) => (
           <div
             key={poke.id}
-            className="flex flex-col justify-center items-center gap-2 p-4   rounded-lg w-80"
+            className="flex flex-col justify-center items-center gap-2 p-4   rounded-lg w-full"
           >
-            <Link className="  w-40 h-40 flex flex-col justify-center items-center mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow
-             hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+            <Link className="   h-40 flex flex-col justify-center items-center mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow
+             hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full"
             to={`/pokemon/${poke.id}`}>
               {poke.name.english}
+              <span  className=' text-lg'>{poke?.name.japanese}</span> <br />
               <h5 className="  text-lg text-gray-900 dark:text-white max-w-sm p-6 
              hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">{poke.type}
               </h5>
