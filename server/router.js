@@ -3,7 +3,7 @@ import pokemon from './db.js';
 const route = express.Router();
 route.get('/', async(req, res) => {
   try {
-    const poke = await pokemon.find({}).limit(10).toArray();
+    const poke = await pokemon.find({}).toArray();
     
     res.status(200).send(poke)
   } catch (error) {
