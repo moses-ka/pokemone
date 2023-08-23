@@ -7,7 +7,7 @@ export default function Pokemon() {
   const [pokemon,setPokemone] = useState()
     useEffect(() => {
         
-        axios.get(`https://pokomone.onrender.com/pokemon/${id}`)
+        axios.get(`https://pokemon.cyclic.cloud/pokemon/${id}`)
           .then((response) => {
           
           setPokemone(response.data );

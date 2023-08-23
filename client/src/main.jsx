@@ -6,7 +6,7 @@ import App from './App.jsx';
 import NavBar from './component/navBar';
 import Pokemones from './component/pokemones';
 import Pokemon from './component/pokemon';
-import PokeInfo from './component/pokeInfo';
+import PokeFigt from './component/pokeFight';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       
           <Route path="/pokemon/:id" element={<Pokemon/>} />
            
-          <Route path="/Pokemon/:id/fight" element={<PokeInfo/>} />
+          <Route path="/Pokemon/:id/fight" element={<PokeFigt/>} />
       
       </Routes>
     </Router>
