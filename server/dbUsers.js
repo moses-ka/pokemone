@@ -7,8 +7,5 @@ dotenv.config()
 const client = new MongoClient (process.env.MONGO_URI);
 
 const db = client.db('pokemons')
-const pokemon = db.collection('pokemon')
-export const users = db.collection('users')
-export default pokemon
-
-
+const users = db.collection('users')
+export default users
